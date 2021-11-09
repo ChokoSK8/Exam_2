@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_d.c                                          :+:      :+:    :+:   */
+/*   print_x.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 15:08:22 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/09 08:15:28 by abrun            ###   ########.fr       */
+/*   Created: 2021/11/09 08:55:55 by abrun             #+#    #+#             */
+/*   Updated: 2021/11/09 09:31:00 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	print_d(int arg)
+int	print_x(unsigned int arg)
 {
-	char	*itoa;
-	size_t	len;
+	int	len;
+	char	*hexa;
 
-	itoa = ft_itoa(arg);
-	if (!itoa)
+	hexa = convert_hexa(arg);
+	if (!hexa)
 		return (-1);
-	len = ft_strlen(itoa);
-	write(1, itoa, len);
+	len = ft_strlen(hexa);
+	write(1, hexa, len);
 	return (len);
 }

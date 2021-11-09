@@ -6,7 +6,7 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 15:16:06 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/08 15:32:30 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/09 08:16:24 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_n_digit(int n)
 	res = 1;
 	while (n > 10)
 	{
-		n / 10;
+		n /= 10;
 		res++;
 	}
 	if (minus)
@@ -37,5 +37,39 @@ int	ft_n_digit(int n)
 char	*ft_itoa(int n)
 {
 	char	*itoa;
+	int		counter;
+	int		n_digit;
 
-	
+	n_digit = ft_n_digit(n);
+	itoa = malloc(sizeof(n_digit + 1));
+	if (!itoa)
+		return (0);
+	counter = n_digit - 1;
+	if (n < 0)
+	{
+		itoa[0] = '-';
+		n *= -1;
+	}
+	ft_getnbr(itoa, n, counter);
+	itoa[n_digit] = 0;
+	return (itoa);
+}
+
+void	ft_getnbr(char *itoa, int n, int counter)
+{
+	if (n / 10 > 0)
+		ft_getnbr(itoa, n / 10, counter - 1);
+	itoa[counter] = n % 10 + '0';
+}
+
+size_t	ft_strlen(char *s)
+{
+	size_t	len;
+
+	if (!s)
+		return (0);
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
+}

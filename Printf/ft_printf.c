@@ -6,28 +6,27 @@
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 14:46:28 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/08 15:28:11 by abrun            ###   ########.fr       */
+/*   Updated: 2021/11/09 09:21:28 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdio.h>
-#include <unistd.h>
+#include "printf.h"
 
 int	print_arg(char c, va_list lst)
 {
 	if (c == 'd')
-		return (print_d(va_arg(lst, int));
+		return (print_d(va_arg(lst, int)));
 	else if (c == 's')
-		return (print_s(va_arg(lst, char *));
-	else
-		return (print_x(lst, long long int));
+		return (print_s(va_arg(lst, char *)));
+	else if (c == 'x')
+		return (print_x(va_arg(lst, unsigned int)));
+	return (-1);
 }	
 
 int	ft_printf(const char *s, ...)
 {
 	va_list	lst;
-	char	*num;
+//	char	*num;
 	int		ret;
 	int		n_ktr;
 	
@@ -52,5 +51,5 @@ int	ft_printf(const char *s, ...)
 		if (*s)
 			s++;
 	}
-	return (ret);
+	return (n_ktr);
 }

@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_d.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abrun <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 15:08:22 by abrun             #+#    #+#             */
-/*   Updated: 2021/11/09 08:15:28 by abrun            ###   ########.fr       */
+/*   Created: 2021/11/09 08:16:32 by abrun             #+#    #+#             */
+/*   Updated: 2021/11/09 09:34:06 by abrun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	print_d(int arg)
+int	main()
 {
-	char	*itoa;
-	size_t	len;
-
-	itoa = ft_itoa(arg);
-	if (!itoa)
-		return (-1);
-	len = ft_strlen(itoa);
-	write(1, itoa, len);
-	return (len);
+	printf("Lui : %d\n", printf("hey %x\n", 2456555));
+	printf("\n------------------------------------------\n");
+	printf("Moi : %d\n", ft_printf("hey %x\n", 2456555));
+	return (0);
 }
